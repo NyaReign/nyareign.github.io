@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nya Reign – Launching Soon</title>
 
-    <!-- Google Font (Modern, Clean, Luxury) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Modern Luxury Font for Title -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Elegant Serif Font for "Launching Soon" -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -15,117 +18,150 @@
             color: white;
             text-align: center;
             overflow-x: hidden;
+            height: 100vh;
         }
 
-        /* Background Slideshow */
+        /* Gradient Animation (Gold → Purple → Black → Gold) */
         .bg {
             position: fixed;
             top: 0; left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
             z-index: -1;
-            animation: fade 24s infinite;
+            background: linear-gradient(120deg, #d4af37, #4a2a7a, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradientFlow 18s ease infinite;
         }
 
-        /* 4 Background Images – Day → Sunset → Night → Sunrise */
-        @keyframes fade {
-            0%   { background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'); }      /* sunrise */
-            25%  { background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470'); }      /* daytime */
-            50%  { background-image: url('https://images.unsplash.com/photo-1501973801540-537f08ccae7d'); }      /* sunset */
-            75%  { background-image: url('https://images.unsplash.com/photo-1500048993953-d23a436266cf'); }      /* night sky */
-            100% { background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'); }      /* sunrise again */
+        @keyframes gradientFlow {
+            0%   { background-position: 0% 50%; }
+            33%  { background-position: 50% 100%; }
+            66%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            margin-top: 18vh;
+            margin-top: 16vh;
+            padding: 20px;
         }
 
+        /* Bigger, Premium Title */
         h1 {
-            font-size: 48px;
-            font-weight: 600;
-            letter-spacing: 4px;
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 6px;
             text-transform: uppercase;
+            animation: fadeIn 2s ease forwards;
+            opacity: 0;
         }
 
+        /* Elegant serif for Launching Soon */
         h2 {
-            font-size: 38px;
-            font-weight: 300;
-            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 400;
+            margin-top: 15px;
+            opacity: 0;
+            animation: fadeIn 3s ease forwards;
+            animation-delay: 1s;
         }
 
-        /* Gold underline accent */
+        /* Smooth Fade-In Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Gold underline */
         .underline {
-            width: 120px;
+            width: 160px;
             height: 3px;
-            background: linear-gradient(90deg, #d4af37, #f5e7a1);
-            margin: 10px auto 25px;
+            background: linear-gradient(90deg, #e7c355, #f8e7a1, #d4af37);
+            margin: 15px auto 35px;
             border-radius: 2px;
         }
 
-        /* Form */
+        /* Email Form */
         form {
             margin-top: 25px;
+            animation: fadeIn 3s ease forwards;
+            animation-delay: 2s;
+            opacity: 0;
         }
+
         input[type="email"] {
-            padding: 12px;
-            width: 260px;
+            padding: 14px;
+            width: 280px;
             border-radius: 30px;
             border: none;
             outline: none;
             font-size: 16px;
         }
+
         button {
-            padding: 12px 30px;
+            padding: 14px 32px;
             margin-left: 10px;
             border-radius: 30px;
             border: none;
             font-size: 16px;
-            background: linear-gradient(90deg, #d4af37, #f5e7a1);
+            background: linear-gradient(90deg, #d4af37, #f5e7a1, #d4af37);
             color: black;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: 0.3s;
         }
+
         button:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
         }
 
         /* Instagram Section */
         .social {
-            margin-top: 50px;
+            margin-top: 60px;
+            animation: fadeIn 3s ease forwards;
+            animation-delay: 2.5s;
+            opacity: 0;
         }
+
         .insta-icon {
-            width: 42px;
-            filter: invert(84%) sepia(47%) saturate(803%) hue-rotate(358deg) brightness(95%) contrast(95%);
+            width: 46px;
+            filter: invert(88%) sepia(39%) saturate(900%) hue-rotate(356deg) brightness(95%) contrast(95%);
+            margin-bottom: 10px;
         }
+
         .insta-btn {
             display:inline-block;
             margin-top: 15px;
-            padding: 12px 30px;
+            padding: 12px 34px;
             border-radius: 30px;
-            background: linear-gradient(90deg, #d4af37, #f7e9a3);
+            background: linear-gradient(90deg, #d4af37, #f7e9a3, #d4af37);
             color:#000;
             text-decoration:none;
             font-weight:bold;
             font-size:16px;
-            box-shadow:0 4px 10px rgba(0,0,0,0.25);
+            box-shadow:0 4px 12px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .insta-btn:hover {
+            transform: translateY(-2px);
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Background Slideshow -->
     <div class="bg"></div>
 
     <div class="container">
         <h1>NYA REIGN</h1>
         <div class="underline"></div>
+
         <h2>Launching Soon</h2>
 
-        <!-- Email Subscribe Form -->
+        <!-- Functional Email Form -->
         <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
             <input type="email" name="email" placeholder="Enter your email" required>
             <input type="hidden" name="_captcha" value="false">
@@ -146,6 +182,5 @@
             </a>
         </div>
     </div>
-
 </body>
 </html>
