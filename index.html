@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nya Reign – Exclusive Private Launch Invitation</title>
 <meta name="description" content="Nya Reign – Request an invitation to our exclusive private launch. Be among the first to experience our curated luxury experience.">
 <meta name="keywords" content="Nya Reign, private launch, luxury experience, exclusive, invitation, coming soon">
 <meta name="author" content="Nya Reign">
@@ -35,8 +36,6 @@
 }
 </script>
 
-<title>Nya Reign – Exclusive Private Launch Invitation</title>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
@@ -62,6 +61,8 @@ html, body {
   animation: fadeIn 1.6s ease forwards;
   max-width: 90%;
   z-index: 1;
+  padding: 0 20px; /* ensures full visibility of N in Reign */
+  box-sizing: border-box;
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -76,6 +77,7 @@ h1 {
   margin-bottom: 14px;
   color: #d4af37;
   text-shadow: 0 0 10px rgba(212,175,55,0.4), 0 0 25px rgba(212,175,55,0.3);
+  overflow: visible; /* ensure last letter fully visible */
 }
 h1::after {
   content: "";
@@ -99,7 +101,7 @@ h1::before {
   animation: shimmer 6s infinite;
 }
 @keyframes shimmer { 0% { left: -100%; } 50% { left: 120%; } 100% { left: 120%; } }
-@media (max-width: 600px) { h1 { font-size: 3.2rem; letter-spacing: 2px; } }
+@media (max-width: 600px) { h1 { font-size: 3.2rem; letter-spacing: 2px; overflow: visible; } }
 
 h2.tagline { font-size: 1.35rem; font-weight: 300; margin-bottom: 34px; color: #c9b07a; }
 
@@ -164,17 +166,6 @@ a.social-link:hover { text-decoration: underline; }
 /* Button breathing glow */
 @keyframes breathe{0%{box-shadow:0 0 0 rgba(212,175,55,0.0);}50%{box-shadow:0 0 14px rgba(212,175,55,0.6),0 0 28px rgba(212,175,55,0.4);}100%{box-shadow:0 0 0 rgba(212,175,55,0.0);}}
 
-/* Success animation */
-#successWrapper{display:none;flex-direction:column;align-items:center;margin-top:25px;}
-.checkmark{width:60px;height:60px;border-radius:50%;border:1px solid #d4af37;display:flex;align-items:center;justify-content:center;margin-bottom:14px;opacity:0;transform:scale(0.8);transition:all .8s ease;}
-.checkmark svg{width:32px;height:32px;}
-.checkmark circle{stroke:#d4af37;stroke-width:1;}
-.checkmark path{stroke:#d4af37;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48;stroke-dashoffset:48;transition:stroke-dashoffset 0.8s ease 0.3s;}
-.show .checkmark{opacity:1;transform:scale(1);}
-.show .checkmark path{stroke-dashoffset:0;}
-#successMessage{margin-top:25px;color:#d4af37;font-size:1.1rem;letter-spacing:1px;opacity:0;transform:translateY(10px);transition:all .8s ease;}
-#successWrapper.show #successMessage{opacity:1;transform:translateY(0);}
-
 /* Cookie Modal */
 .cookie-modal {
   position: fixed;
@@ -189,11 +180,8 @@ a.social-link:hover { text-decoration: underline; }
   padding: 16px;
   z-index: 999;
   box-shadow: 0 0 12px rgba(212,175,55,0.7);
-  opacity: 1;
-  transition: all 0.5s ease;
   font-size: 0.95rem;
 }
-.cookie-modal.hide { opacity: 0; transform: translateY(100px); pointer-events: none; }
 .cookie-content p { margin: 0 0 12px 0; line-height: 1.4; }
 .cookie-content button {
   background: #d4af37;
@@ -206,6 +194,7 @@ a.social-link:hover { text-decoration: underline; }
   transition: all 0.3s ease;
 }
 .cookie-content button:hover { background: #c9b07a; }
+.cookie-modal.hide { display: none; }
 </style>
 </head>
 <body>
@@ -224,8 +213,9 @@ a.social-link:hover { text-decoration: underline; }
   <h2 class="tagline">Request an invitation to our private launch</h2>
 
   <form id="inviteForm" action="https://formsubmit.co/nyareign@hotmail.com" method="POST">
-    <input id="email" type="email" name="email" placeholder="Enter your email" required>
+    <input type="email" name="email" placeholder="Enter your email" required>
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="thank-you.html">
 
     <div class="consent-container">
       <input type="checkbox" id="consent">
@@ -239,32 +229,23 @@ a.social-link:hover { text-decoration: underline; }
     <button type="submit">Request An Invitation</button>
   </form>
 
-  <div id="successWrapper">
-    <div class="checkmark">
-      <svg viewBox="0 0 52 52">
-        <circle cx="26" cy="26" r="25" fill="none" />
-        <path fill="none" d="M14 27l7 7 17-17" />
-      </svg>
-    </div>
-    <div id="successMessage">
-      You’re officially on the NYA REIGN private list. We’ll notify you when invitations open.
-    </div>
-  </div>
-
   <div class="socials">
     Follow on Instagram: 
     <a class="social-link" href="https://instagram.com/nyareignofficial" target="_blank" rel="noopener noreferrer">@nyareignofficial</a>
   </div>
 </div>
 
-<!-- Cookie Modal -->
+<!-- Cookie / Privacy Modal -->
 <div id="cookieModal" class="cookie-modal">
   <div class="cookie-content">
     <p>We use cookies and store your email to send private launch invitations and updates. 
-       By clicking <strong>Accept & Close</strong>, you consent to this use. 
-       You can read our full <a href="/privacy-policy.html" target="_blank" style="color:#d4af37; text-decoration:underline;">Privacy Policy</a>.
+       You can accept or decline. Read our 
+       <a href="/privacy-policy.html" target="_blank" style="color:#d4af37;text-decoration:underline;">Privacy Policy</a>.
     </p>
-    <button onclick="acceptCookies()">Accept & Close</button>
+    <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:10px;">
+      <button onclick="acceptCookies()">Accept</button>
+      <button onclick="declineCookies()" style="background:#000; border:1px solid #d4af37; color:#d4af37;">Decline</button>
+    </div>
   </div>
 </div>
 
@@ -272,46 +253,29 @@ a.social-link:hover { text-decoration: underline; }
 const form = document.getElementById('inviteForm');
 const consent = document.getElementById('consent');
 const consentError = document.getElementById('consentError');
-const successWrapper = document.getElementById('successWrapper');
 
 form.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  if (!consent.checked) {
+  if(!consent.checked) {
+    e.preventDefault();
     consentError.style.display = 'block';
     return;
-  } else {
-    consentError.style.display = 'none';
   }
-
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      successWrapper.style.display = 'flex';
-      setTimeout(() => { successWrapper.classList.add('show'); }, 50);
-      form.style.display = 'none';
-    } else {
-      alert("Oops! Something went wrong. Please try again.");
-    }
-  }).catch(err => {
-    alert("Oops! Something went wrong. Please try again.");
-    console.error(err);
-  });
 });
 
+// Persistent Cookie Modal
 function acceptCookies() {
-  const modal = document.getElementById('cookieModal');
-  modal.classList.add('hide');
-  localStorage.setItem('cookiesAccepted', 'true');
+  localStorage.setItem('cookiesConsent', 'accepted');
+  document.getElementById('cookieModal').classList.add('hide');
+}
+
+function declineCookies() {
+  localStorage.setItem('cookiesConsent', 'declined');
+  document.getElementById('cookieModal').classList.add('hide');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if(localStorage.getItem('cookiesAccepted') === 'true') {
+  const consentStatus = localStorage.getItem('cookiesConsent');
+  if(consentStatus === 'accepted' || consentStatus === 'declined') {
     document.getElementById('cookieModal').classList.add('hide');
   }
 });
