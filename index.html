@@ -1,186 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nya Reign – Launching Soon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nya Reign</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-    <!-- Modern Luxury Font for Title -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    html, body {
+      margin: 0;
+      height: 100%;
+      background:
+        linear-gradient(135deg, #000000 0%, #050505 50%, #000000 100%),
+        repeating-linear-gradient(45deg, rgba(212,175,55,0.03) 0, rgba(212,175,55,0.03) 1px, transparent 4px, transparent 12px);
+      background-size: 300% 300%;
+      animation: silkMotion 30s ease-in-out infinite;
+      color: #d4af37;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
 
-    <!-- Elegant Serif Font for "Launching Soon" -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    .container {
+      animation: fadeIn 1.6s ease forwards;
+      max-width: 90%;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            text-align: center;
-            overflow-x: hidden;
-            height: 100vh;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        /* Gradient Animation (Gold → Purple → Black → Gold) */
-        .bg {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(120deg, #d4af37, #4a2a7a, #0a0a0a);
-            background-size: 400% 400%;
-            animation: gradientFlow 18s ease infinite;
-        }
+    @keyframes silkMotion {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 60%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        @keyframes gradientFlow {
-            0%   { background-position: 0% 50%; }
-            33%  { background-position: 50% 100%; }
-            66%  { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    h1 {
+      text-transform: uppercase;
+      font-size: 5.5rem;
+      letter-spacing: 5px;
+      margin-bottom: 14px;
+      color: #d4af37;
+      text-shadow:
+        0 0 10px rgba(212,175,55,0.4),
+        0 0 25px rgba(212,175,55,0.3);
+    }
 
-        .container {
-            margin-top: 16vh;
-            padding: 20px;
-        }
+    .tagline {
+      font-size: 1.35rem;
+      font-weight: 300;
+      margin-bottom: 34px;
+      color: #c9b07a;
+    }
 
-        /* Bigger, Premium Title */
-        h1 {
-            font-size: 64px;
-            font-weight: 700;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            animation: fadeIn 2s ease forwards;
-            opacity: 0;
-        }
+    form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
 
-        /* Elegant serif for Launching Soon */
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 400;
-            margin-top: 15px;
-            opacity: 0;
-            animation: fadeIn 3s ease forwards;
-            animation-delay: 1s;
-        }
+    input[type="email"] {
+      padding: 14px 18px;
+      border: 1px solid #d4af37;
+      border-radius: 2px;
+      background: rgba(0,0,0,0.6);
+      color: #d4af37;
+      width: 270px;
+      font-size: 1rem;
+      outline: none;
+    }
 
-        /* Smooth Fade-In Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+    button {
+      padding: 14px 26px;
+      background: transparent;
+      border: 1px solid #d4af37;
+      border-radius: 2px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #d4af37;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.4s ease;
+    }
 
-        /* Gold underline */
-        .underline {
-            width: 160px;
-            height: 3px;
-            background: linear-gradient(90deg, #e7c355, #f8e7a1, #d4af37);
-            margin: 15px auto 35px;
-            border-radius: 2px;
-        }
+    button:hover {
+      background: #d4af37;
+      color: black;
+    }
 
-        /* Email Form */
-        form {
-            margin-top: 25px;
-            animation: fadeIn 3s ease forwards;
-            animation-delay: 2s;
-            opacity: 0;
-        }
+    .socials {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #a58c54;
+    }
 
-        input[type="email"] {
-            padding: 14px;
-            width: 280px;
-            border-radius: 30px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-        }
+    a.social-link {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        button {
-            padding: 14px 32px;
-            margin-left: 10px;
-            border-radius: 30px;
-            border: none;
-            font-size: 16px;
-            background: linear-gradient(90deg, #d4af37, #f5e7a1, #d4af37);
-            color: black;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: 0.3s;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-        }
-
-        /* Instagram Section */
-        .social {
-            margin-top: 60px;
-            animation: fadeIn 3s ease forwards;
-            animation-delay: 2.5s;
-            opacity: 0;
-        }
-
-        .insta-icon {
-            width: 46px;
-            filter: invert(88%) sepia(39%) saturate(900%) hue-rotate(356deg) brightness(95%) contrast(95%);
-            margin-bottom: 10px;
-        }
-
-        .insta-btn {
-            display:inline-block;
-            margin-top: 15px;
-            padding: 12px 34px;
-            border-radius: 30px;
-            background: linear-gradient(90deg, #d4af37, #f7e9a3, #d4af37);
-            color:#000;
-            text-decoration:none;
-            font-weight:bold;
-            font-size:16px;
-            box-shadow:0 4px 12px rgba(0,0,0,0.3);
-            transition: 0.3s;
-        }
-
-        .insta-btn:hover {
-            transform: translateY(-2px);
-        }
-    </style>
+    a.social-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <h1>Nya Reign</h1>
+    <div class="tagline">Request an invitation to our private launch</div>
 
-    <div class="bg"></div>
+    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Request An Invitation</button>
+    </form>
 
-    <div class="container">
-        <h1>NYA REIGN</h1>
-        <div class="underline"></div>
-
-        <h2>Launching Soon</h2>
-
-        <!-- Functional Email Form -->
-        <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <input type="hidden" name="_captcha" value="false">
-            <button type="submit">Notify Me</button>
-        </form>
-
-        <!-- Instagram -->
-        <div class="social">
-            <a href="https://instagram.com/nyareignofficial" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
-                     class="insta-icon" alt="Instagram">
-            </a>
-
-            <br>
-
-            <a href="https://instagram.com/nyareignofficial" class="insta-btn" target="_blank">
-                Follow on Instagram
-            </a>
-        </div>
+    <div class="socials">
+      Follow on Instagram: 
+      <a class="social-link" href="https://instagram.com/nyareignofficial" target="_blank">@nyareignofficial</a>
     </div>
+  </div>
 </body>
 </html>
