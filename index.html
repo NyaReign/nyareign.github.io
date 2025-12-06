@@ -41,6 +41,7 @@
     }
 
     h1 {
+      position: relative;
       white-space: nowrap;
       text-transform: uppercase;
       font-size: 5.5rem;
@@ -50,6 +51,46 @@
       text-shadow:
         0 0 10px rgba(212,175,55,0.4),
         0 0 25px rgba(212,175,55,0.3);
+    }
+
+    /* Subtle underline */
+    h1::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 1px;
+      background: #d4af37;
+      opacity: 0.7;
+    }
+
+    /* Shimmer sweep */
+    h1::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(212,175,55,0.6), transparent);
+      animation: shimmer 6s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      50% { left: 120%; }
+      100% { left: 120%; }
+    }
+
+    /* Mobile refinement */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+      }
+    
     }
 
     .tagline {
@@ -111,18 +152,78 @@
     a.social-link:hover {
       text-decoration: underline;
     }
-  </style>
+  /* Gold dust particles */
+.particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+.particles span{position:absolute;bottom:-20px;width:2px;height:2px;background:rgba(212,175,55,0.8);border-radius:50%;animation:float 18s linear infinite;}
+@keyframes float{0%{transform:translateY(0);opacity:0;}10%{opacity:1;}100%{transform:translateY(-110vh) translateX(40px);opacity:0;}}
+
+/* Breathing glow for button */
+button{animation:breathe 3.5s ease-in-out infinite;}
+@keyframes breathe{0%{box-shadow:0 0 0 rgba(212,175,55,0.0);}50%{box-shadow:0 0 14px rgba(212,175,55,0.6),0 0 28px rgba(212,175,55,0.4);}100%{box-shadow:0 0 0 rgba(212,175,55,0.0);}}
+
+</style>
 </head>
 <body>
+<div class="particles">
+  <span style="left:15%;animation-delay:0s"></span>
+  <span style="left:25%;animation-delay:3s"></span>
+  <span style="left:40%;animation-delay:6s"></span>
+  <span style="left:55%;animation-delay:1s"></span>
+  <span style="left:70%;animation-delay:5s"></span>
+  <span style="left:85%;animation-delay:2s"></span>
+</div>
   <div class="container">
     <h1>Nya Reign</h1>
     <div class="tagline">Request an invitation to our private launch</div>
 
-    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+    <form action="https://formsubmit.co/nyareign@hotmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
       <input type="email" name="email" placeholder="Enter your email" required>
       <button type="submit">Request An Invitation</button>
     </form>
+
+    <div id="successWrapper">
+      <div class="checkmark">
+        <svg viewBox="0 0 52 52">
+          <circle cx="26" cy="26" r="25" fill="none" />
+          <path fill="none" d="M14 27l7 7 17-17" />
+        </svg>
+      </div>
+      <div id="successMessage">You’re officially on the NYA REIGN private list. We’re currently building the experience — you’ll be among the first to know when invitations open.</div>
+    </div>
+    <style>
+      #successWrapper{display:flex;flex-direction:column;align-items:center;margin-top:25px;}
+      .checkmark{width:60px;height:60px;border-radius:50%;border:1px solid #d4af37;display:flex;align-items:center;justify-content:center;margin-bottom:14px;opacity:0;transform:scale(0.8);transition:all .8s ease;}
+      .checkmark svg{width:32px;height:32px;}
+      .checkmark circle{stroke:#d4af37;stroke-width:1;}
+      .checkmark path{stroke:#d4af37;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48;stroke-dashoffset:48;transition:stroke-dashoffset 0.8s ease 0.3s;}
+      .show .checkmark{opacity:1;transform:scale(1);}
+      .show .checkmark path{stroke-dashoffset:0;}
+      #successMessage{margin-top:25px;color:#d4af37;font-size:1.1rem;letter-spacing:1px;opacity:0;transform:translateY(10px);transition:all .8s ease;}
+      #successMessage.show{opacity:1;transform:translateY(0);}
+    </style>
+
+    <script>
+      const form = document.querySelector('form');
+      const success = document.getElementById('successMessage');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const data = new FormData(form);
+
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            success.parentElement.classList.add('show');
+            form.reset();
+          }
+        });
+      });
+    </script>
 
     <div class="socials">
       Follow on Instagram: 
