@@ -1,137 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nya Reign – Invitation Confirmed</title>
-<meta name="description" content="Thank you! You're officially on the Nya Reign private list. We'll notify you when invitations open.">
-<meta name="author" content="Nya Reign">
-
-<!-- Open Graph / Twitter Card -->
-<meta property="og:title" content="Nya Reign – Invitation Confirmed">
-<meta property="og:description" content="Thank you! You're officially on the Nya Reign private list.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://nyareign.com/thank-you.html">
-<meta property="og:image" content="https://nyareign.com/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nya Reign – Invitation Confirmed">
-<meta name="twitter:description" content="Thank you! You're officially on the Nya Reign private list.">
-<meta name="twitter:image" content="https://nyareign.com/og-image.png">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You – Nya Reign</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-html, body {
-  margin: 0;
-  height: 100%;
-  background:
-    linear-gradient(135deg, #000000 0%, #050505 50%, #000000 100%),
-    repeating-linear-gradient(45deg, rgba(212,175,55,0.03) 0, rgba(212,175,55,0.03) 1px, transparent 4px, transparent 12px);
-  background-size: 300% 300%;
-  animation: silkMotion 30s ease-in-out infinite;
-  color: #d4af37;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.container {
-  max-width: 90%;
-  animation: fadeIn 1.6s ease forwards;
-  z-index: 1;
-}
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes silkMotion { 0% { background-position: 0% 50%; } 50% { background-position: 100% 60%; } 100% { background-position: 0% 50%; } }
-
-h1 { font-size: 4rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 4px; color: #d4af37; text-shadow: 0 0 10px rgba(212,175,55,0.4), 0 0 25px rgba(212,175,55,0.3); }
-p { font-size: 1.25rem; color: #c9b07a; margin-bottom: 30px; }
-
-/* Success Checkmark */
-.checkmark { width: 80px; height: 80px; border-radius: 50%; border: 1px solid #d4af37; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; opacity: 0; transform: scale(0.8); transition: all 0.8s ease; }
-.checkmark svg { width: 40px; height: 40px; }
-.checkmark circle { stroke:#d4af37; stroke-width:1; fill:none; }
-.checkmark path { stroke:#d4af37; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:48; stroke-dashoffset:48; transition: stroke-dashoffset 0.8s ease 0.3s; }
-.show .checkmark { opacity: 1; transform: scale(1); }
-.show .checkmark path { stroke-dashoffset:0; }
-
-/* Buttons */
-.button-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
-.button { padding: 12px 24px; border: 1px solid #d4af37; background: transparent; color: #d4af37; text-decoration: none; font-weight: 600; border-radius: 4px; transition: all 0.3s ease; cursor: pointer; }
-.button:hover { background: #d4af37; color: black; }
-
-/* Copy message */
-#copyMessage { color:#c9b07a; margin-top:8px; display:none; }
-
-/* Socials */
-.socials { margin-top: 25px; font-size: 1rem; color: #a58c54; }
-a.social-link { color: #d4af37; text-decoration: none; font-weight: 500; }
-a.social-link:hover { text-decoration: underline; }
-
-/* Particles */
-.particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
-.particles span{position:absolute;bottom:-20px;width:2px;height:2px;background:rgba(212,175,55,0.8);border-radius:50%;animation:float 18s linear infinite;}
-@keyframes float{0%{transform:translateY(0);opacity:0;}10%{opacity:1;}100%{transform:translateY(-110vh) translateX(40px);opacity:0;}}
+body{display:flex;justify-content:center;align-items:center;height:100vh;background:#000;color:#d4af37;font-family:'Poppins',sans-serif;text-align:center;padding:20px;}
+h1{font-size:3rem;margin-bottom:20px;}
+p{font-size:1.2rem;}
 </style>
 </head>
 <body>
-
-<div class="particles">
-  <span style="left:15%;animation-delay:0s"></span>
-  <span style="left:25%;animation-delay:3s"></span>
-  <span style="left:40%;animation-delay:6s"></span>
-  <span style="left:55%;animation-delay:1s"></span>
-  <span style="left:70%;animation-delay:5s"></span>
-  <span style="left:85%;animation-delay:2s"></span>
+<div>
+  <h1>Thank You!</h1>
+  <p>You’re officially on the Nya Reign private list. We’ll notify you when invitations open.</p>
 </div>
-
-<div class="container">
-  <div id="successWrapper">
-    <div class="checkmark">
-      <svg viewBox="0 0 52 52">
-        <circle cx="26" cy="26" r="25" fill="none" />
-        <path fill="none" d="M14 27l7 7 17-17" />
-      </svg>
-    </div>
-    <h1>Thank You!</h1>
-    <p>You're officially on the Nya Reign private list. We'll notify you as soon as invitations open.</p>
-
-    <div class="button-container">
-      <a href="https://nyareign.com" class="button">Back to Homepage</a>
-      <a href="https://twitter.com/intent/tweet?text=I%20just%20joined%20the%20Nya%20Reign%20private%20launch!%20Be%20among%20the%20first%20to%20experience%20luxury%20-%20https%3A%2F%2Fnyareign.com" target="_blank" class="button">Share on Twitter</a>
-      <button class="button" id="copyButton">Copy Launch Link</button>
-    </div>
-    <p id="copyMessage">Link copied to clipboard!</p>
-
-    <div class="socials">
-      Follow us on Instagram: 
-      <a class="social-link" href="https://instagram.com/nyareignofficial" target="_blank" rel="noopener noreferrer">@nyareignofficial</a>
-    </div>
-  </div>
-</div>
-
-<script>
-// Animate checkmark on page load
-window.addEventListener('DOMContentLoaded', () => {
-  const wrapper = document.getElementById('successWrapper');
-  wrapper.classList.add('show');
-
-  // Copy link functionality
-  const copyButton = document.getElementById('copyButton');
-  const copyMessage = document.getElementById('copyMessage');
-  copyButton.addEventListener('click', () => {
-    navigator.clipboard.writeText('https://nyareign.com').then(() => {
-      copyMessage.style.display = 'block';
-      setTimeout(() => { copyMessage.style.display = 'none'; }, 3000);
-    }).catch(() => {
-      alert('Unable to copy. Please copy manually.');
-    });
-  });
-});
-</script>
-
 </body>
 </html>
