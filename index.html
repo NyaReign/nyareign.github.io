@@ -46,7 +46,7 @@ html, body {
 .container {
   animation: fadeIn 1.6s ease forwards;
   max-width: 90%;
-  padding: 0 20px; /* Ensure N in Reign is visible */
+  padding: 0 20px;
   z-index: 1;
 }
 
@@ -57,7 +57,7 @@ h1 {
   position: relative;
   white-space: nowrap;
   text-transform: uppercase;
-  font-size: 5rem; /* slightly smaller to fit */
+  font-size: 5rem;
   letter-spacing: 5px;
   margin-bottom: 14px;
   color: #d4af37;
@@ -198,15 +198,18 @@ a.social-link:hover { text-decoration: underline; }
   <!-- FormSubmit form -->
   <form action="https://formsubmit.co/nyareign@hotmail.com" method="POST">
     <input type="email" name="email" placeholder="Enter your email" required>
-    <input type="hidden" name="_captcha" value="false">
 
     <div class="consent-container">
-      <input type="checkbox" required>
+      <input type="checkbox" name="consent" required>
       <label>
-        I consent to Nya Reign storing my email and sending private launch invitations and updates. Read our
-        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+        I consent to Nya Reign storing my email and sending private launch invitations and updates. 
+        Read our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
       </label>
     </div>
+
+    <!-- Redirect to thank-you page -->
+    <input type="hidden" name="_next" value="https://nyareign.com/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
 
     <button type="submit">Request An Invitation</button>
   </form>
