@@ -7,6 +7,8 @@
 <meta name="keywords" content="Nya Reign, private launch, luxury experience, exclusive, invitation, coming soon">
 <meta name="author" content="Nya Reign">
 
+<title>Nya Reign – Exclusive Private Launch Invitation</title>
+
 <!-- Open Graph for social sharing -->
 <meta property="og:title" content="Nya Reign - Exclusive Private Launch">
 <meta property="og:description" content="Request your invitation to the Nya Reign private launch and be among the first to experience our luxury offering.">
@@ -19,8 +21,6 @@
 <meta name="twitter:title" content="Nya Reign - Exclusive Private Launch">
 <meta name="twitter:description" content="Request your invitation to the Nya Reign private launch and be among the first to experience our luxury offering.">
 <meta name="twitter:image" content="https://nyareign.com/og-image.png">
-
-<title>Nya Reign – Exclusive Private Launch Invitation</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -46,6 +46,7 @@ html, body {
 .container {
   animation: fadeIn 1.6s ease forwards;
   max-width: 90%;
+  padding: 0 20px; /* Ensure N in Reign is visible */
   z-index: 1;
 }
 
@@ -56,11 +57,12 @@ h1 {
   position: relative;
   white-space: nowrap;
   text-transform: uppercase;
-  font-size: 5.5rem;
+  font-size: 5rem; /* slightly smaller to fit */
   letter-spacing: 5px;
   margin-bottom: 14px;
   color: #d4af37;
   text-shadow: 0 0 10px rgba(212,175,55,0.4), 0 0 25px rgba(212,175,55,0.3);
+  overflow: visible;
 }
 h1::after {
   content: "";
@@ -120,8 +122,6 @@ input[type="email"] {
 }
 .consent-container input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; margin-top: 2px; }
 
-#consentError { color:#ffcc00; font-size:0.9rem; margin-top:6px; display:none; }
-
 button {
   padding: 14px 26px;
   background: transparent;
@@ -148,17 +148,6 @@ a.social-link:hover { text-decoration: underline; }
 
 /* Button breathing glow */
 @keyframes breathe{0%{box-shadow:0 0 0 rgba(212,175,55,0.0);}50%{box-shadow:0 0 14px rgba(212,175,55,0.6),0 0 28px rgba(212,175,55,0.4);}100%{box-shadow:0 0 0 rgba(212,175,55,0.0);}}
-
-/* Success animation */
-#successWrapper{display:none;flex-direction:column;align-items:center;margin-top:25px;}
-.checkmark{width:60px;height:60px;border-radius:50%;border:1px solid #d4af37;display:flex;align-items:center;justify-content:center;margin-bottom:14px;opacity:0;transform:scale(0.8);transition:all .8s ease;}
-.checkmark svg{width:32px;height:32px;}
-.checkmark circle{stroke:#d4af37;stroke-width:1;}
-.checkmark path{stroke:#d4af37;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48;stroke-dashoffset:48;transition:stroke-dashoffset 0.8s ease 0.3s;}
-.show .checkmark{opacity:1;transform:scale(1);}
-.show .checkmark path{stroke-dashoffset:0;}
-#successMessage{margin-top:25px;color:#d4af37;font-size:1.1rem;letter-spacing:1px;opacity:0;transform:translateY(10px);transition:all .8s ease;}
-#successWrapper.show #successMessage{opacity:1;transform:translateY(0);}
 
 /* Cookie Modal */
 .cookie-modal {
@@ -206,33 +195,21 @@ a.social-link:hover { text-decoration: underline; }
   <h1>Nya Reign</h1>
   <h2 class="tagline">Request an invitation to our private launch</h2>
 
-  <form id="inviteForm" action="https://formsubmit.co/nyareign@hotmail.com" method="POST">
-    <input id="email" type="email" name="email" placeholder="Enter your email" required>
+  <!-- FormSubmit form -->
+  <form action="https://formsubmit.co/nyareign@hotmail.com" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required>
     <input type="hidden" name="_captcha" value="false">
 
     <div class="consent-container">
-      <input type="checkbox" id="consent">
-      <label for="consent">
-        I consent to Nya Reign storing my email and sending me private launch invitations and updates. I have read and agree to the 
+      <input type="checkbox" required>
+      <label>
+        I consent to Nya Reign storing my email and sending private launch invitations and updates. Read our
         <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
       </label>
     </div>
-    <div id="consentError">Please check the box to give consent before submitting.</div>
 
     <button type="submit">Request An Invitation</button>
   </form>
-
-  <div id="successWrapper">
-    <div class="checkmark">
-      <svg viewBox="0 0 52 52">
-        <circle cx="26" cy="26" r="25" fill="none" />
-        <path fill="none" d="M14 27l7 7 17-17" />
-      </svg>
-    </div>
-    <div id="successMessage">
-      You’re officially on the NYA REIGN private list. We’ll notify you when invitations open.
-    </div>
-  </div>
 
   <div class="socials">
     Follow on Instagram: 
@@ -252,41 +229,9 @@ a.social-link:hover { text-decoration: underline; }
 </div>
 
 <script>
-const form = document.getElementById('inviteForm');
-const consent = document.getElementById('consent');
-const consentError = document.getElementById('consentError');
-const successWrapper = document.getElementById('successWrapper');
-
-// Form submit with AJAX
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  if (!consent.checked) {
-    consentError.style.display = 'block';
-    return;
-  } else {
-    consentError.style.display = 'none';
-  }
-
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: 'POST',
-    body: data
-  }).then(response => {
-    successWrapper.style.display = 'flex';
-    setTimeout(() => { successWrapper.classList.add('show'); }, 50);
-    form.style.display = 'none';
-  }).catch(err => {
-    alert("Oops! Something went wrong. Please try again.");
-    console.error(err);
-  });
-});
-
-// Cookie modal
+// Cookie modal logic
 function acceptCookies() {
-  const modal = document.getElementById('cookieModal');
-  modal.classList.add('hide');
+  document.getElementById('cookieModal').classList.add('hide');
   localStorage.setItem('cookiesAccepted', 'true');
 }
 
