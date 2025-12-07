@@ -3,124 +3,109 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Nya Reign – Request an invitation to our exclusive private launch. Be among the first to experience our curated luxury experience.">
+<title>Nya Reign</title>
+<meta name="description" content="Nya Reign – Request an invitation to our exclusive private launch.">
 <meta name="keywords" content="Nya Reign, private launch, luxury experience, exclusive, invitation, coming soon">
 <meta name="author" content="Nya Reign">
 
-<title>Nya Reign – Exclusive Private Launch Invitation</title>
+<!-- Open Graph & Twitter tags -->
+<meta property="og:title" content="Nya Reign - Exclusive Private Launch">
+<meta property="og:description" content="Request your invitation to the Nya Reign private launch.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nyareign.com">
+<meta property="og:image" content="https://nyareign.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nya Reign - Exclusive Private Launch">
+<meta name="twitter:description" content="Request your invitation to the Nya Reign private launch.">
+<meta name="twitter:image" content="https://nyareign.com/og-image.png">
 
-<!-- Your SEO Open Graph & Twitter tags here -->
-
+<!-- Fonts & CSS -->
 <style>
-/* Your previous CSS, updated to fix N cutting off and other styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 html, body {
   margin: 0;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
   background:
     linear-gradient(135deg, #000000 0%, #050505 50%, #000000 100%),
     repeating-linear-gradient(45deg, rgba(212,175,55,0.03) 0, rgba(212,175,55,0.03) 1px, transparent 4px, transparent 12px);
   background-size: 300% 300%;
   animation: silkMotion 30s ease-in-out infinite;
+  color: #d4af37;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #d4af37;
   overflow: hidden;
-  padding: 20px; /* added to prevent cutting off letters */
+  padding: 20px; /* ensures "N" is visible */
 }
 
-/* Fix for "N" in Reign */
-h1 { 
-  font-size:5.5rem; 
-  margin:0; 
-  line-height:1; 
-  position: relative; 
-  text-transform: uppercase; 
-  letter-spacing:5px; 
-  text-shadow:0 0 10px rgba(212,175,55,0.4), 0 0 25px rgba(212,175,55,0.3);
+.container {
+  animation: fadeIn 1.6s ease forwards;
+  max-width: 90%;
+  z-index: 1;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes silkMotion { 0% { background-position: 0% 50%; } 50% { background-position: 100% 60%; } 100% { background-position: 0% 50%; } }
+
+h1 {
+  position: relative;
   white-space: nowrap;
+  text-transform: uppercase;
+  font-size: 5.5rem;
+  letter-spacing: 5px;
+  margin-bottom: 14px;
+  color: #d4af37;
+  text-shadow: 0 0 10px rgba(212,175,55,0.4), 0 0 25px rgba(212,175,55,0.3);
+}
+h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: #d4af37;
+  opacity: 0.7;
+}
+h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.6), transparent);
+  animation: shimmer 6s infinite;
+}
+@keyframes shimmer { 0% { left: -100%; } 50% { left: 120%; } 100% { left: 120%; } }
+@media (max-width: 600px) { h1 { font-size: 3.2rem; letter-spacing: 2px; } }
+
+.tagline { font-size: 1.35rem; font-weight: 300; margin-bottom: 34px; color: #c9b07a; }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
 }
 
-/* ...rest of your styles remain mostly unchanged (fadeIn, shimmer, tagline, button, consent, particles, etc.) ... */
-
-</style>
-</head>
-<body>
-
-<div class="particles">
-  <span style="left:15%;animation-delay:0s"></span>
-  <span style="left:25%;animation-delay:3s"></span>
-  <span style="left:40%;animation-delay:6s"></span>
-  <span style="left:55%;animation-delay:1s"></span>
-  <span style="left:70%;animation-delay:5s"></span>
-  <span style="left:85%;animation-delay:2s"></span>
-</div>
-
-<div class="container">
-  <h1>Nya Reign</h1>
-  <h2 class="tagline">Request an invitation to our private launch</h2>
-
-  <form id="inviteForm" action="https://formsubmit.co/nyareign@hotmail.com" method="POST">
-    <input type="email" name="email" placeholder="Enter your email" required>
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://nyareign.com/thank-you.html">
-
-    <div class="consent-container">
-      <input type="checkbox" id="consent">
-      <label for="consent">
-        I consent to Nya Reign storing my email and sending me private launch invitations and updates. I have read and agree to the 
-        <a href="/privacy-policy.html" target="_blank" style="color:#d4af37;text-decoration:underline;">Privacy Policy</a>.
-      </label>
-    </div>
-    <div id="consentError" style="color:#ffcc00; display:none; margin-top:6px;">Please check the box to give consent before submitting.</div>
-
-    <button type="submit">Request An Invitation</button>
-  </form>
-
-  <div class="socials">
-    Follow on Instagram: 
-    <a class="social-link" href="https://instagram.com/nyareignofficial" target="_blank">@nyareignofficial</a>
-  </div>
-</div>
-
-<!-- Cookie Modal -->
-<div id="cookieModal" class="cookie-modal">
-  <div class="cookie-content">
-    <p>We use cookies and store your email to send private launch invitations and updates. 
-       By clicking <strong>Accept & Close</strong>, you consent to this use. 
-       You can read our full <a href="/privacy-policy.html" target="_blank" style="color:#d4af37; text-decoration:underline;">Privacy Policy</a>.
-    </p>
-    <button onclick="acceptCookies()">Accept & Close</button>
-  </div>
-</div>
-
-<script>
-const form = document.getElementById('inviteForm');
-const consent = document.getElementById('consent');
-const consentError = document.getElementById('consentError');
-
-form.addEventListener('submit', function(e) {
-  if(!consent.checked){
-    e.preventDefault();
-    consentError.style.display='block';
-  } else {
-    consentError.style.display='none';
-  }
-});
-
-function acceptCookies(){
-  document.getElementById('cookieModal').classList.add('hide');
-  localStorage.setItem('cookiesAccepted','true');
+input[type="email"] {
+  padding: 14px 18px;
+  border: 1px solid #d4af37;
+  border-radius: 2px;
+  background: rgba(0,0,0,0.6);
+  color: #d4af37;
+  width: 270px;
+  max-width: 100%;
+  font-size: 1rem;
+  outline: none;
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  if(localStorage.getItem('cookiesAccepted')==='true'){
-    document.getElementById('cookieModal').classList.add('hide');
-  }
-});
-</script>
-
-</body>
-</html>
+.consent-container {
+  display: fl
